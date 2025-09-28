@@ -1,0 +1,101 @@
+[tool.poetry]
+name = "py-atom-unsaved-notes"
+version = "1.0.0"
+description = "Python script to export unsaved Atom editor notes"
+readme = "README.md"
+authors = [
+    "Robin Schulz <bulletinmybeard@gmail.com>"
+]
+packages = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pydantic = "^2.0"
+rich = "^13.0"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.11.0"
+pytest = "^8.0.0"
+bandit = "^1.8.6"
+ruff = "^0.8.0"
+
+[tool.poetry.scripts]
+atom-unsaved-notes = "src.cli:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+check_untyped_defs = true
+warn_return_any = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+plugins = ["pydantic.mypy"]
+exclude = [
+    ".venv/",
+    "venv/",
+    "build/",
+    "dist/"
+]
+
+[[tool.mypy.overrides]]
+module = "tests.test_models"
+disable_error_code = ["arg-type"]
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+exclude = [
+    ".git",
+    ".venv",
+    "venv",
+    "build",
+    "dist",
+    "__pycache__",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle errors
+    "W",      # pycodestyle warnings
+    "F",      # pyflakes
+    "I",      # isort
+    "N",      # pep8-naming
+    "UP",     # pyupgrade
+    "B",      # flake8-bugbear
+    "C4",     # flake8-comprehensions
+    "SIM",    # flake8-simplify
+    "RUF",    # Ruff-specific rules
+    "S",      # flake8-bandit (security)
+]
+ignore = [
+    "N805",   # First argument of a method should be 'self' (Pydantic @field_validator uses 'cls')
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101", "S603", "S607"]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+force-sort-within-sections = true
+known-first-party = ["src"]
+known-third-party = ["pydantic", "rich"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+docstring-code-format = true
