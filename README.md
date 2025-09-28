@@ -1,6 +1,6 @@
 # py-atom-unsaved-notes
 
-[![CI](https://github.com/yourusername/py-atom-unsaved-notes/workflows/CI/badge.svg)](https://github.com/yourusername/py-atom-unsaved-notes/actions)
+[![CI](https://github.com/bulletinmybeard/py-atom-unsaved-notes/workflows/CI/badge.svg)](https://github.com/bulletinmybeard/py-atom-unsaved-notes/actions)
 [![Python](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
 [![Poetry](https://img.shields.io/badge/poetry-2.1.4-blue.svg)](https://python-poetry.org/)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
