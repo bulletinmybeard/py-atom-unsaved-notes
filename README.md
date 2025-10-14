@@ -30,7 +30,7 @@ This Python tool extracts unsaved notes by using binary pattern matching.
 
 ```bash
 # Clone and install
-git clone https://github.com/yourusername/py-atom-unsaved-notes.git
+git clone https://github.com/bulletinmybeard/py-atom-unsaved-notes.git
 cd py-atom-unsaved-notes
 poetry install
 
