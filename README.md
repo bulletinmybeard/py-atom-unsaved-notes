@@ -85,7 +85,7 @@ poetry run atom-unsaved-notes \
 ## Export
 ```
 20250927-103515/
-├── api-config__000.json          # Detected JSON grammar
+├── api-config__000.json         # Detected JSON grammar
 ├── deploy-script__001.sh        # Detected Shell grammar
 ├── todo-list__002.md            # Used default .md
 └── database-query__003.sql      # Detected SQL grammar
